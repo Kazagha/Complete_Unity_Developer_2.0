@@ -211,6 +211,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4740395505052190}
+  - component: {fileID: 114593381118241748}
   m_Layer: 0
   m_Name: Rocket Ship 1
   m_TagString: Untagged
@@ -900,6 +901,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1322149289490622}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114593381118241748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1904535955864586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ac9dc8888cb954692a09ff06ab0e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135193845881338690
 SphereCollider:
   m_ObjectHideFlags: 1
