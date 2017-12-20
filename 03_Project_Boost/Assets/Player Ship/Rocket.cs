@@ -6,6 +6,7 @@ using UnityEngine;
 public class Rocket : MonoBehaviour {
 
     Rigidbody ridgidBody;
+    public int turn_speed;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +33,10 @@ public class Rocket : MonoBehaviour {
         if(Input.GetKey(KeyCode.A))
         {
             print("Turning Left");
+            transform.Rotate(Vector3.forward * turn_speed * Time.deltaTime);
         } else if (Input.GetKey(KeyCode.D))
         {
+            transform.Rotate(-Vector3.forward * turn_speed * Time.deltaTime);
             print("Turning Right");
         }
     }
