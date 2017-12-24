@@ -7,8 +7,8 @@ public class Rocket : MonoBehaviour {
 
     Rigidbody rigidBody;
     AudioSource audioSource;
-    public float turn_speed;
-    public float thrust_speed;
+    [SerializeField] float turn_speed;
+    [SerializeField] float thrust_speed;
     private Boolean audioPlay;
 
 	// Use this for initialization
