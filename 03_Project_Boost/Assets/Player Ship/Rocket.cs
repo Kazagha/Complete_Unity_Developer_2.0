@@ -27,6 +27,9 @@ public class Rocket : MonoBehaviour {
     // Process user input
     private void Rotation()
     {
+        // Freese the rotation
+        ridgidBody.freezeRotation = true;
+
         // Check for rotation
         if (Input.GetKey(KeyCode.A))
         {
@@ -38,6 +41,9 @@ public class Rocket : MonoBehaviour {
             transform.Rotate(-Vector3.forward * turn_speed * Time.deltaTime);
             print("Turning Right");
         }
+
+        // Resume rotation 
+        ridgidBody.freezeRotation = false;
     }
 
     private void Thrust()
