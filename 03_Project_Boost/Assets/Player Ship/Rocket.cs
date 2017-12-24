@@ -6,16 +6,20 @@ using UnityEngine;
 public class Rocket : MonoBehaviour {
 
     Rigidbody ridgidBody;
+    AudioSource audioSource;
     public int turn_speed;
+    private Boolean audioPlay;
 
 	// Use this for initialization
 	void Start () {
         ridgidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         ProcessInput();
+        
 	}
 
     // Process user input
@@ -24,9 +28,20 @@ public class Rocket : MonoBehaviour {
         // Check for thrust
         if(Input.GetKey(KeyCode.Space))
         {
-            print("SPACE!!!!");
             //ridgidBody.AddRelativeForce(new Vector3(0, 1, 0));
             ridgidBody.AddRelativeForce(Vector3.up);
+
+            if (audioPlay == false)
+            {
+                // The audio source is probably already playing 
+                // and does not need to be started again 
+                audioSource.Play();
+                audioSource.volume = 1;
+                audioPlay = true;
+            }
+        } else {
+            audioSource.volume = 0;
+            audioPlay = false;
         } 
 
         // Check for rotation
