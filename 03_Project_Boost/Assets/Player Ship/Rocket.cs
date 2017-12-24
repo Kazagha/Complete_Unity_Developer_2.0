@@ -18,15 +18,32 @@ public class Rocket : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ProcessInput();
-        
+        // Handle ship rotation
+        Rotation();
+        // Handle ship thrust
+        Thrust();
 	}
 
     // Process user input
-    private void ProcessInput()
+    private void Rotation()
+    {
+        // Check for rotation
+        if (Input.GetKey(KeyCode.A))
+        {
+            print("Turning Left");
+            transform.Rotate(Vector3.forward * turn_speed * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(-Vector3.forward * turn_speed * Time.deltaTime);
+            print("Turning Right");
+        }
+    }
+
+    private void Thrust()
     {
         // Check for thrust
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             //ridgidBody.AddRelativeForce(new Vector3(0, 1, 0));
             ridgidBody.AddRelativeForce(Vector3.up);
@@ -39,20 +56,11 @@ public class Rocket : MonoBehaviour {
                 audioSource.volume = 1;
                 audioPlay = true;
             }
-        } else {
+        }
+        else
+        {
             audioSource.volume = 0;
             audioPlay = false;
-        } 
-
-        // Check for rotation
-        if(Input.GetKey(KeyCode.A))
-        {
-            print("Turning Left");
-            transform.Rotate(Vector3.forward * turn_speed * Time.deltaTime);
-        } else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.forward * turn_speed * Time.deltaTime);
-            print("Turning Right");
         }
     }
 }
