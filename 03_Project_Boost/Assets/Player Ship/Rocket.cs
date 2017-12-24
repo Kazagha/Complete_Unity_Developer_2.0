@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour {
 
-    Rigidbody ridgidBody;
+    Rigidbody rigidBody;
     AudioSource audioSource;
     public int turn_speed;
     private Boolean audioPlay;
 
 	// Use this for initialization
 	void Start () {
-        ridgidBody = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
 	}
 	
@@ -28,7 +28,7 @@ public class Rocket : MonoBehaviour {
     private void Rotation()
     {
         // Freese the rotation
-        ridgidBody.freezeRotation = true;
+        rigidBody.freezeRotation = true;
 
         // Check for rotation
         if (Input.GetKey(KeyCode.A))
@@ -43,7 +43,7 @@ public class Rocket : MonoBehaviour {
         }
 
         // Resume rotation 
-        ridgidBody.freezeRotation = false;
+        rigidBody.freezeRotation = false;
     }
 
     private void Thrust()
@@ -52,7 +52,7 @@ public class Rocket : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             //ridgidBody.AddRelativeForce(new Vector3(0, 1, 0));
-            ridgidBody.AddRelativeForce(Vector3.up);
+            rigidBody.AddRelativeForce(Vector3.up);
 
             if (audioPlay == false)
             {
