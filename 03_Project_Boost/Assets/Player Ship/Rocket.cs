@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour {
 
@@ -32,8 +33,13 @@ public class Rocket : MonoBehaviour {
             case "Friendly":
                 print("Collision with friendly object");
                 break;
+            case "Finish":
+                print("Finish");
+                SceneManager.LoadScene(1);
+                break;
             default:
                 print("Collision will kill you");
+                SceneManager.LoadScene(0);
                 break;
         }
     }
