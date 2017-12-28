@@ -5,10 +5,11 @@ using UnityEngine;
 public class rotate_terrain : MonoBehaviour {
 
     [SerializeField] float turn_speed;
+    [SerializeField] Vector3 rotation_direction;
 
     // Use this for initialization
     void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -19,6 +20,6 @@ public class rotate_terrain : MonoBehaviour {
     void rotate()
     {
         float rotation_this_frame = turn_speed * Time.deltaTime;
-        transform.Rotate(Vector3.forward * rotation_this_frame);
+        transform.Rotate(rotation_direction * rotation_this_frame);
     }
 }
