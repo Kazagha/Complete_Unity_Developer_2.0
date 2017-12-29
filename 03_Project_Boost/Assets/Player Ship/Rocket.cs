@@ -12,6 +12,9 @@ public class Rocket : MonoBehaviour {
     [SerializeField] float thrust_speed;
     private Boolean audioPlay;
 
+    enum State { Alive, Dying, Transcending };
+    State state = State.Alive;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -19,29 +22,47 @@ public class Rocket : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        // Handle ship rotation
-        Rotation();
-        // Handle ship thrust
-        Thrust();
-	}
+	void Update ()
+    {
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
+        if (state == State.Alive)
+        {
+            // Handle ship rotation
+            Rotation();
+            // Handle ship thrust
+            Thrust();
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         switch(collision.gameObject.tag)
         {
             case "Friendly":
-                print("Collision with friendly object");
                 break;
             case "Finish":
-                print("Finish");
-                SceneManager.LoadScene(1);
+                state = State.Transcending;
+                Invoke("LoadNextLevel", 1f);
                 break;
             default:
-                print("Collision will kill you");
-                SceneManager.LoadScene(0);
+                state = State.Dying;
+                Invoke("LoadFirstLevel", 1f);
                 break;
         }
+    }
+
+    private void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene(1);
     }
 
     // Process user input

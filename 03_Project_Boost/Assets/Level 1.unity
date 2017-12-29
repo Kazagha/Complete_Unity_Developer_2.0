@@ -152,31 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4009411887978604, guid: 64751588913921e4aa8d386d882b762b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192324957584828, guid: 64751588913921e4aa8d386d882b762b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.265
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256533466046406, guid: 64751588913921e4aa8d386d882b762b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.2579999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4615100943226528, guid: 64751588913921e4aa8d386d882b762b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.26099998
-      objectReference: {fileID: 0}
     - target: {fileID: 54712529828406436, guid: 64751588913921e4aa8d386d882b762b,
         type: 2}
-      propertyPath: m_Mass
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114593381118241748, guid: 64751588913921e4aa8d386d882b762b,
-        type: 2}
-      propertyPath: turn_speed
-      value: 150
+      propertyPath: m_AngularDrag
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64751588913921e4aa8d386d882b762b, type: 2}
