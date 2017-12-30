@@ -1012,6 +1012,8 @@ MonoBehaviour:
   turn_speed: 150
   thrust_speed: 125
   mainEngine: {fileID: 8300000, guid: d6233d086d8d9f8468c9aa52c1b158a8, type: 3}
+  levelWin: {fileID: 8300000, guid: b5b297b5e02d1f84fa5d42c7db546208, type: 3}
+  explosion: {fileID: 8300000, guid: 22c5b5f69e271fd4e938db69cf10ff5b, type: 3}
 --- !u!135 &135193845881338690
 SphereCollider:
   m_ObjectHideFlags: 1

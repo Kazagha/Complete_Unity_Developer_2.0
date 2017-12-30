@@ -11,6 +11,8 @@ public class Rocket : MonoBehaviour {
     [SerializeField] float turn_speed;
     [SerializeField] float thrust_speed;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip levelWin;
+    [SerializeField] AudioClip explosion;
     private Boolean audioPlay;
 
     enum State { Alive, Dying, Transcending };
@@ -50,10 +52,14 @@ public class Rocket : MonoBehaviour {
                 break;
             case "Finish":
                 state = State.Transcending;
+                audioSource.volume = 0.8f;
+                audioSource.PlayOneShot(levelWin);
                 Invoke("LoadNextLevel", 1f);
                 break;
             default:
                 state = State.Dying;
+                audioSource.volume = 0.8f;
+                audioSource.PlayOneShot(explosion);
                 Invoke("LoadFirstLevel", 1f);
                 break;
         }
@@ -110,6 +116,7 @@ public class Rocket : MonoBehaviour {
         else
         {
             audioSource.volume = 0;
+            //audioSource.Stop();
             audioPlay = false;
         }
     }
