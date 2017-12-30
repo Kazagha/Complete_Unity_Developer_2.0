@@ -10,6 +10,7 @@ public class Rocket : MonoBehaviour {
     AudioSource audioSource;
     [SerializeField] float turn_speed;
     [SerializeField] float thrust_speed;
+    [SerializeField] AudioClip mainEngine;
     private Boolean audioPlay;
 
     enum State { Alive, Dying, Transcending };
@@ -32,9 +33,9 @@ public class Rocket : MonoBehaviour {
         if (state == State.Alive)
         {
             // Handle ship rotation
-            Rotation();
+            RespondToRotateInput();
             // Handle ship thrust
-            Thrust();
+            RespondToThrustInput();
         }
     }
 
@@ -69,13 +70,12 @@ public class Rocket : MonoBehaviour {
     }
 
     // Process user input
-    private void Rotation()
+    private void RespondToRotateInput()
     {
         // Freese the rotation
         rigidBody.freezeRotation = true;
         float rotationThisFrame = turn_speed * Time.deltaTime;
-
-
+        
         // Check for rotation
         if (Input.GetKey(KeyCode.A))
         {
@@ -90,19 +90,19 @@ public class Rocket : MonoBehaviour {
         rigidBody.freezeRotation = false;
     }
 
-    private void Thrust()
+    private void RespondToThrustInput()
     {
         // Check for thrust
         if (Input.GetKey(KeyCode.Space))
         {
             //ridgidBody.AddRelativeForce(new Vector3(0, 1, 0));
-            rigidBody.AddRelativeForce(Vector3.up * thrust_speed);
+            ApplyThrust();
 
             if (audioPlay == false)
             {
                 // The audio source is probably already playing 
                 // and does not need to be started again 
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
                 audioSource.volume = 1;
                 audioPlay = true;
             }
@@ -112,5 +112,10 @@ public class Rocket : MonoBehaviour {
             audioSource.volume = 0;
             audioPlay = false;
         }
+    }
+
+    private void ApplyThrust()
+    {
+        rigidBody.AddRelativeForce(Vector3.up * thrust_speed);
     }
 }
