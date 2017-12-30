@@ -15,6 +15,10 @@ public class Rocket : MonoBehaviour {
     [SerializeField] AudioClip explosion;
     private Boolean audioPlay;
 
+    [SerializeField] ParticleSystem engineParticle;
+    [SerializeField] ParticleSystem successParticle;
+    [SerializeField] ParticleSystem deathParticle; 
+
     enum State { Alive, Dying, Transcending };
     State state = State.Alive;
 
@@ -46,6 +50,7 @@ public class Rocket : MonoBehaviour {
         // If the player is not alive then return
         // Ignore further collisions
         if (state != State.Alive)   { return; }
+
         switch(collision.gameObject.tag)
         {
             case "Friendly":
@@ -62,6 +67,7 @@ public class Rocket : MonoBehaviour {
     private void FailureSequence()
     {
         state = State.Dying;
+        deathParticle.Play();
         audioSource.Stop();
         audioSource.volume = 0.8f;
         audioSource.PlayOneShot(explosion);
@@ -128,12 +134,14 @@ public class Rocket : MonoBehaviour {
         {
             audioSource.volume = 0;
             //audioSource.Stop();
+            engineParticle.Stop(); 
             audioPlay = false;
         }
     }
 
     private void ApplyThrust()
     {
+        engineParticle.Play();
         rigidBody.AddRelativeForce(Vector3.up * thrust_speed);
     }
 }
