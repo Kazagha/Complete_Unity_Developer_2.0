@@ -51,18 +51,29 @@ public class Rocket : MonoBehaviour {
             case "Friendly":
                 break;
             case "Finish":
-                state = State.Transcending;
-                audioSource.volume = 0.8f;
-                audioSource.PlayOneShot(levelWin);
-                Invoke("LoadNextLevel", 1f);
+                SuccessSequence();
                 break;
             default:
-                state = State.Dying;
-                audioSource.volume = 0.8f;
-                audioSource.PlayOneShot(explosion);
-                Invoke("LoadFirstLevel", 1f);
+                FailureSequence();
                 break;
         }
+    }
+
+    private void FailureSequence()
+    {
+        state = State.Dying;
+        audioSource.Stop();
+        audioSource.volume = 0.8f;
+        audioSource.PlayOneShot(explosion);
+        Invoke("LoadFirstLevel", 1f);
+    }
+
+    private void SuccessSequence()
+    {
+        state = State.Transcending;
+        audioSource.volume = 0.8f;
+        audioSource.PlayOneShot(levelWin);
+        Invoke("LoadNextLevel", 1f);
     }
 
     private void LoadFirstLevel()
