@@ -142,6 +142,6 @@ public class Rocket : MonoBehaviour {
     private void ApplyThrust()
     {
         engineParticle.Play();
-        rigidBody.AddRelativeForce(Vector3.up * thrust_speed);
+        rigidBody.AddRelativeForce(Vector3.up * thrust_speed * Time.deltaTime);
     }
 }
