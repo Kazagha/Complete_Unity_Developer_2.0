@@ -5,8 +5,8 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Oscillator : MonoBehaviour {
 
-    [SerializeField] Vector3 movementVector;
-    [SerializeField] float movementSpeed; 
+    [SerializeField] Vector3 movementVector = new Vector3(10f,0f,0f);
+    [SerializeField] float period = 2f;
 
     // todo remove from the inspector later
     [Range(0, 1)]
@@ -24,17 +24,8 @@ public class Oscillator : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (movementFactor > 1)
-        {
-            movementSpeed = -movementSpeed;
-        }
-        else if (movementFactor < 0)
-        {
-            movementSpeed = -movementSpeed;
-        }
-
         // Calculate movement factor
-        movementFactor = calcMovementFactor(movementSpeed);
+        movementFactor = calcMovementFactor();
         // Set the transform
         offsetTransform();
     }
@@ -47,8 +38,23 @@ public class Oscillator : MonoBehaviour {
         transform.position = startingPos + offset;
     }
 
-    private float calcMovementFactor(float speed)
+    private float calcMovementFactor()
     {
-        return movementFactor + (speed * Time.deltaTime);
+        // Cycles gradually grows as the game time advances
+        // This is automatically frame rate independent
+        float cycles = Time.time / period;
+
+        // Twice the value of PI, full circle
+        const float tau = Mathf.PI * 2;
+
+        // Calculate the position on the sine wave curve 
+        // Values between -1 and 1
+        float rawSinWave = Mathf.Sin(cycles * tau);
+
+        // Translate the sine wave into the movement factor
+        // Values between 0 and 1
+        movementFactor = (rawSinWave / 2f) + 0.5f;
+
+        return movementFactor;
     }
 }

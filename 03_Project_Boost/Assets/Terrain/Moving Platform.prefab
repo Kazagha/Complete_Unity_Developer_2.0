@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33297639136012258}
   - component: {fileID: 65616494548593670}
   - component: {fileID: 23183362017122032}
-  - component: {fileID: 114932575204807236}
+  - component: {fileID: 114325051858292800}
   m_Layer: 0
   m_Name: Moving Platform
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114932575204807236
+--- !u!114 &114325051858292800
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,6 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab94ef383f3722347afefb8d61f49822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {x: 0, y: 0, z: 0}
-  movementSpeed: 0
+  movementVector: {x: 12, y: 0, z: 0}
+  period: 6
   movementFactor: 0
