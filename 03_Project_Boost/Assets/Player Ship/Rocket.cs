@@ -13,6 +13,7 @@ public class Rocket : MonoBehaviour {
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip levelWin;
     [SerializeField] AudioClip explosion;
+    [SerializeField] float levelLoadDelay;
     private Boolean audioPlay;
 
     [SerializeField] ParticleSystem engineParticle;
@@ -71,7 +72,7 @@ public class Rocket : MonoBehaviour {
         audioSource.Stop();
         audioSource.volume = 0.8f;
         audioSource.PlayOneShot(explosion);
-        Invoke("LoadFirstLevel", 1f);
+        Invoke("LoadFirstLevel", levelLoadDelay);
     }
 
     private void SuccessSequence()
@@ -79,7 +80,7 @@ public class Rocket : MonoBehaviour {
         state = State.Transcending;
         audioSource.volume = 0.8f;
         audioSource.PlayOneShot(levelWin);
-        Invoke("LoadNextLevel", 1f);
+        Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     private void LoadFirstLevel()
