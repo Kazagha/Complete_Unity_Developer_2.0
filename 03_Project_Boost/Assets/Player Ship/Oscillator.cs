@@ -6,13 +6,14 @@ using UnityEngine;
 public class Oscillator : MonoBehaviour {
 
     [SerializeField] Vector3 movementVector = new Vector3(10f,0f,0f);
-    [SerializeField] float period = 2f;
+    [SerializeField] float period;
 
     // todo remove from the inspector later
     [Range(0, 1)]
     [SerializeField]
     float movementFactor; // 0 for not moved, 1 for fully moved
 
+    // Store the original position of the game object
     private Vector3 startingPos;
 
     // Use this for initialization
@@ -24,6 +25,10 @@ public class Oscillator : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Checking if floats are equal is unreliable 
+        // Instead check if period is less than the smallest float value
+        if(period <= Mathf.Epsilon) { return; }
+        
         // Calculate movement factor
         movementFactor = calcMovementFactor();
         // Set the transform
