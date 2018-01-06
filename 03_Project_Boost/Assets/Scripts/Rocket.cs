@@ -78,6 +78,7 @@ public class Rocket : MonoBehaviour {
     private void SuccessSequence()
     {
         state = State.Transcending;
+        successParticle.Play();
         audioSource.volume = 0.8f;
         audioSource.PlayOneShot(levelWin);
         Invoke("LoadNextLevel", levelLoadDelay);
