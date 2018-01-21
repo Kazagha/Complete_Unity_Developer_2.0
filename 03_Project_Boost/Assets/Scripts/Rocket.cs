@@ -23,9 +23,6 @@ public class Rocket : MonoBehaviour {
     enum State { Alive, Dying, Transcending, Debug };
     State state = State.Alive;
 
-    enum Debug { Enabled, Disabled };
-    Debug debug = Debug.Enabled;
-
     enum OnCollision { Enabled, Disabled, Transcending };
     OnCollision onCollision = OnCollision.Enabled;
 
@@ -51,7 +48,7 @@ public class Rocket : MonoBehaviour {
             RespondToThrustInput();
         }
         
-        if (debug == Debug.Enabled)
+        if (Debug.isDebugBuild == true)
         {
             // Respond to Level Skip
             respondToSkipLevel();
