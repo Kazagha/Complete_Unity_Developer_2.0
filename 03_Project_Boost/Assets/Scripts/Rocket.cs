@@ -23,6 +23,9 @@ public class Rocket : MonoBehaviour {
     enum State { Alive, Dying, Transcending };
     State state = State.Alive;
 
+    enum Debug { Enabled, Disabled };
+    Debug debug = Debug.Enabled;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -42,7 +45,13 @@ public class Rocket : MonoBehaviour {
             // Handle ship rotation
             RespondToRotateInput();
             // Handle ship thrust
-            RespondToThrustInput();
+            RespondToThrustInput();            
+        }
+
+        if (debug == Debug.Enabled)
+        {
+            // Respond to Level Skip
+            respondToSkipLevel();
         }
     }
 
@@ -138,6 +147,14 @@ public class Rocket : MonoBehaviour {
             //audioSource.Stop();
             engineParticle.Stop(); 
             audioPlay = false;
+        }
+    }
+
+    public void respondToSkipLevel()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            LoadNextLevel();
         }
     }
 
