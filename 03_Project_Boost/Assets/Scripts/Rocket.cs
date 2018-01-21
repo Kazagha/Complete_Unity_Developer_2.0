@@ -20,11 +20,14 @@ public class Rocket : MonoBehaviour {
     [SerializeField] ParticleSystem successParticle;
     [SerializeField] ParticleSystem deathParticle; 
 
-    enum State { Alive, Dying, Transcending };
+    enum State { Alive, Dying, Transcending, Debug };
     State state = State.Alive;
 
     enum Debug { Enabled, Disabled };
     Debug debug = Debug.Enabled;
+
+    enum OnCollision { Enabled, Disabled, Transcending };
+    OnCollision onCollision = OnCollision.Enabled;
 
 	// Use this for initialization
 	void Start () {
@@ -45,13 +48,16 @@ public class Rocket : MonoBehaviour {
             // Handle ship rotation
             RespondToRotateInput();
             // Handle ship thrust
-            RespondToThrustInput();            
+            RespondToThrustInput();
         }
-
+        
         if (debug == Debug.Enabled)
         {
             // Respond to Level Skip
             respondToSkipLevel();
+
+            // Respond to Toggle Collisions
+            respondToToggleCollisions();
         }
     }
 
@@ -60,6 +66,8 @@ public class Rocket : MonoBehaviour {
         // If the player is not alive then return
         // Ignore further collisions
         if (state != State.Alive)   { return; }
+
+        if (onCollision != OnCollision.Enabled) { return; }
 
         switch(collision.gameObject.tag)
         {
@@ -154,7 +162,29 @@ public class Rocket : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.L))
         {
+            print("Loading next level");
             LoadNextLevel();
+        }
+    }
+
+    public void respondToToggleCollisions()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Invoke("OnCollisionToggle", levelLoadDelay);
+        }
+    }
+
+    private void OnCollisionToggle()
+    {
+        if (onCollision == OnCollision.Enabled)
+        {
+            onCollision = OnCollision.Disabled;
+            print("On Collision has been DISABLED");
+        } else
+        {
+            onCollision = OnCollision.Enabled;
+            print("On Collision has been ENABLED");
         }
     }
 
