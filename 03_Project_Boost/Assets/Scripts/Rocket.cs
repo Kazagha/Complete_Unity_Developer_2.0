@@ -105,7 +105,13 @@ public class Rocket : MonoBehaviour {
 
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene(1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Increment one to the next scene
+        // Use the module operator (division remainder) to return to index 0
+        int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     // Process user input
