@@ -117,8 +117,9 @@ public class Rocket : MonoBehaviour {
     // Process user input
     private void RespondToRotateInput()
     {
-        // Freese the rotation
-        rigidBody.freezeRotation = true;
+        // Remove existing rotation
+        rigidBody.angularVelocity = Vector3.zero;
+
         float rotationThisFrame = turn_speed * Time.deltaTime;
         
         // Check for rotation
@@ -130,9 +131,6 @@ public class Rocket : MonoBehaviour {
         {
             transform.Rotate(-Vector3.forward * rotationThisFrame);
         }
-
-        // Resume rotation 
-        rigidBody.freezeRotation = false;
     }
 
     private void RespondToThrustInput()
