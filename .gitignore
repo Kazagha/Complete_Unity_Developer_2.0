@@ -83,3 +83,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+*UnityStore/
