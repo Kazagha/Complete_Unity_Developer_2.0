@@ -245,14 +245,14 @@ namespace UnityStandardAssets.Utility.Inspector
             EditorGUI.indentLevel = 0;
 
             var items = property.FindPropertyRelative("items");
-            var titles = new string[] {"Transform", "", "", ""};
-            var props = new string[] {"transform", "^", "v", "-"};
-            var widths = new float[] {.7f, .1f, .1f, .1f};
+            var titles = new string[] { "Transform", "", "", "" };
+            var props = new string[] { "transform", "^", "v", "-" };
+            var widths = new float[] { .7f, .1f, .1f, .1f };
             float lineHeight = 18;
             bool changedLength = false;
             if (items.arraySize > 0)
             {
-                for (int i = -1; i < items.arraySize; ++i)
+                for (int i = 0; i < items.arraySize; i++)
                 {
                     var item = items.GetArrayElementAtIndex(i);
 
