@@ -8,6 +8,11 @@ public class SceneController : MonoBehaviour {
 
     [SerializeField] float levelLoadDelay;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Use this for initialization
     void Start () {
         Invoke("LoadNextLevel", levelLoadDelay);
