@@ -424,6 +424,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 82742687709229544, guid: e31a825adb3a14e438d59b76f92b792c,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82742687709229544, guid: e31a825adb3a14e438d59b76f92b792c,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e31a825adb3a14e438d59b76f92b792c, type: 2}
   m_IsPrefabParent: 0
@@ -563,3 +573,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1800296815 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1124424732550054, guid: e31a825adb3a14e438d59b76f92b792c,
+    type: 2}
+  m_PrefabInternal: {fileID: 870467044}
+--- !u!114 &1800296816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800296815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfa8e831212bc948bac39286b2449db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
