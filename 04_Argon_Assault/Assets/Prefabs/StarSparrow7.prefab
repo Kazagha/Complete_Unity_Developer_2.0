@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSpeed: 7
-  xPositionMax: 4
-  yPositionMax: 2.1
+  xPositionMax: 4.5
+  yPositionMax: 2.5
   PositionPitchFactor: -5
-  ControlPitchFactor: -12
-  PositionYawFactor: 6.25
-  ControlRollFactor: -20
+  ControlPitchFactor: -15
+  PositionYawFactor: 5
+  ControlRollFactor: -25

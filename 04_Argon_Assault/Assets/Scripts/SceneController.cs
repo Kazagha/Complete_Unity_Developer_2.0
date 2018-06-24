@@ -31,6 +31,6 @@ public class SceneController : MonoBehaviour {
         // Use the module operator (division remainder) to return to index 0
         int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
 
-        SceneManager.LoadScene(nextSceneIndex);
+        SceneManager.LoadScene(1);
     }
 }
