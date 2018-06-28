@@ -380,7 +380,7 @@ Transform:
   m_Father: {fileID: 135320989}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1026673293
+--- !u!1001 &707246648
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -423,51 +423,6 @@ Prefab:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: randomSeed
-      value: -1466676399
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.03676468
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.03676468
-      objectReference: {fileID: 0}
-    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95aa6b0ea9b14bb408ddef02d6fcd193, type: 2}
   m_IsPrefabParent: 0
@@ -503,7 +458,7 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 4686261308016234, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
     type: 2}
-  m_PrefabInternal: {fileID: 1026673293}
+  m_PrefabInternal: {fileID: 707246648}
 --- !u!1 &1393482743
 GameObject:
   m_ObjectHideFlags: 0
