@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuit: {fileID: 135320988}
-  lookAheadForTargetOffset: 2.75
+  lookAheadForTargetOffset: 2
   lookAheadForTargetFactor: 0.1
   lookAheadForSpeedOffset: 10
   lookAheadForSpeedFactor: 0.2
@@ -422,6 +422,51 @@ Prefab:
     - target: {fileID: 1785473713940698, guid: 95aa6b0ea9b14bb408ddef02d6fcd193, type: 2}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: lengthInSec
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1466676399
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.03676468
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.03676468
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804166185313150, guid: 95aa6b0ea9b14bb408ddef02d6fcd193,
+        type: 2}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95aa6b0ea9b14bb408ddef02d6fcd193, type: 2}
